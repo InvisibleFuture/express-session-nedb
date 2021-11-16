@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "使用 nedb 作为 session 的存储容器",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
