@@ -1,0 +1,19 @@
+{
+  "name": "express-session-nedb",
+  "version": "1.0.0",
+  "description": "使用 nedb 作为 session 的存储容器",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/InvisibleFuture/express-session-nedb.git"
+  },
+  "author": "satori.love",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/InvisibleFuture/express-session-nedb/issues"
+  },
+  "homepage": "https://github.com/InvisibleFuture/express-session-nedb#readme"
+}
