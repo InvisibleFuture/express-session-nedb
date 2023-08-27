@@ -1,6 +1,6 @@
 {
   "name": "express-session-nedb",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Use nedb as the storage container for express-session. 使用 nedb 作为 express-session 的存储容器",
   "main": "index.js",
   "type": "module",
