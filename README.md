@@ -9,25 +9,37 @@ npm install express-session-nedb
 
 
 ```javascript
-import nedb      from 'nedb'
-import express   from 'express'
-import session   from 'express-session'
-import nedbstore from 'express-session-nedb'
+import nedb               from 'nedb'
+import express            from 'express'
+import expressSession     from 'express-session'
+import expressSessionNedb from 'express-session-nedb'
+
+const sessions = new nedb({
+  filename:`./db/session.db`,
+  autoload:true,
+  timestampData:true
+})
 
 const app = express()
-const db = new nedb({filename:`./db/session.db`,autoload:true,timestampData:true})
-const store = nedbstore(session, db)
+const store = expressSessionNedb(expressSession, sessions)
 
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
-app.use(session({secret: 'shizukana', name:'sid', resave: false, saveUninitialized: false, cookie: { maxAge: 180 * 24 * 3600000 }, store: store}))
+app.use(session({
+  secret: 'shizukana',
+  name:'sid',
+  resave: false,
+  saveUninitialized: false,
+  cookie: { maxAge: 180 * 24 * 3600000 },
+  store: store
+}))
 
-
-app.get('/' function(req, res, next) {
-  return session_store.db.find({ "data.account.uid": req.session.account.uid }, function(err, docs) {
-    return err ? res.status(500).send('错误') : res.json(docs)
+app.get('/api/sessions' function(req, res, next) {
+  const { page, pageSize, ...query } = req.query
+  sessions.find(query, (err, docs) => {
+    res.json({ page, pageSize, list: docs })
   })
 })
 
-app.listen(8080)
+app.listen(3000)
 ```
