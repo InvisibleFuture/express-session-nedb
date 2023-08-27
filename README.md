@@ -25,7 +25,7 @@ const store = expressSessionNedb(expressSession, sessions)
 
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
-app.use(session({
+app.use(expressSession({
   secret: 'shizukana',
   name:'sid',
   resave: false,
