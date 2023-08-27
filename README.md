@@ -1,4 +1,6 @@
 # express-session-nedb
+Use nedb as the storage container for session, and ensure that nedb and the project use the same version of dependencies, so that session data can also be queried and managed.
+
 使用 nedb 作为 session 的存储容器, 且保障nedb与项目使用统一版本依赖, 使 session 数据也可以被查询和管理
 
 ```bash
